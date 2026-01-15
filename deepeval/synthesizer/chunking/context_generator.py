@@ -1,4 +1,8 @@
-from typing import List, Tuple, Dict, Optional, Union
+from typing import List, Tuple, Dict, Optional, Union, TYPE_CHECKING, Any
+if TYPE_CHECKING:
+    from chromadb.api.models.Collection import Collection
+else:
+    Collection = Any
 from rich.progress import Progress
 from pydantic import BaseModel
 import asyncio
@@ -135,7 +139,6 @@ class ContextGenerator:
         progress: Optional[Progress] = None,
         pbar_id: Optional[int] = None,
     ) -> Tuple[List[List[str]], List[str], List[float]]:
-        from chromadb.api.models.Collection import Collection
 
         vector_db_path = ".vector_db"
         if os.path.exists(vector_db_path):
@@ -260,7 +263,6 @@ class ContextGenerator:
         progress: Optional[Progress] = None,
         pbar_id: Optional[int] = None,
     ) -> Tuple[List[List[str]], List[str], List[float]]:
-        from chromadb.api.models.Collection import Collection
 
         vector_db_path = ".vector_db"
         if os.path.exists(vector_db_path):
