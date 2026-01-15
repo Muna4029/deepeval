@@ -1,8 +1,4 @@
-from typing import List, Tuple, Dict, Optional, Union, TYPE_CHECKING, Any
-if TYPE_CHECKING:
-    from chromadb.api.models.Collection import Collection
-else:
-    Collection = Any
+from typing import List, Tuple, Dict, Optional, Union, Any
 from rich.progress import Progress
 from pydantic import BaseModel
 import asyncio
